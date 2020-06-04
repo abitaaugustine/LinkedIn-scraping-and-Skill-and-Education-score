@@ -4,8 +4,8 @@ from selenium import webdriver
 from samples import score_calculator
 driver = webdriver.Chrome(r"C:\Users\Admin\PycharmProjects\LinkedInScrapingWithQualification\Windows\chromedriver.exe")
 
-email = "nanthalthu@gmail.com"
-password = "solyaugust"  #enter password
+email = "abitaaugustine@gmail.com"
+password = ""  #enter password
 f = open("LinkedIn_URL.txt","r")
 text = f.read()
 #print(text)
