@@ -1,0 +1,6 @@
+selenium
+requests
+lxml
+pandas
+spacy
+pypi
