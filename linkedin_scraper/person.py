@@ -107,6 +107,11 @@ class Person(Scraper):
 
 
         if (edu is not None):
+            degree = edu.find_element_by_class_name("pv-entity__degree-name").text.encode('utf-8').strip()
+            education = Education( degree=degree)
+            self.add_education(education)
+            
+            
             for school in edu.find_elements_by_class_name("pv-profile-section__sortable-item"):
                 university = school.find_element_by_class_name("pv-entity__school-name").text.encode('utf-8').strip()
                 try:
@@ -173,12 +178,18 @@ class Person(Scraper):
         with open('education.csv', 'w', newline='') as file2:
             writer2 = csv.writer(file2)
             writer2.writerow(self.educations)
+            file2.flush()
+        file2.close()
         with open('experience.csv', 'w', newline='') as file3:
             writer3 = csv.writer(file3)
             writer3.writerow(self.experiences)
+            file3.flush()
+        file3.close()
         with open('skills.csv', 'w', newline='') as file1:
             writer1 = csv.writer(file1)
             writer1.writerow(self.skills)
+            file1.flush()
+        file1.close()
 
         return "{name}\n\nExperience\n{exp}\n\nEducation\n{edu}\n\nSkill\n{skill}".format(name=self.name, exp=self.experiences, edu=self.educations,skill=self.skills)
 
