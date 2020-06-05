@@ -11,5 +11,5 @@ text = f.read()
 #print(text)
 actions.login(driver, email, password)  # if email and password isnt given, it'll prompt in terminal
 data = person.Person(text, driver=driver)
-print(data)
+print("")
 score_calculator.calc_score()
